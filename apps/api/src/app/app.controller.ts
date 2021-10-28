@@ -19,9 +19,17 @@ export class AppController {
     return this.appService.isTokenValid(Authorization)
       .pipe(
         switchMap((result: boolean) => result ? this.appService.fetchUserByUsername(params) : of(null)),
-        map((user: IUser) => _.omit(user, ['password']))
+        map((user: IUser) => user ? _.omit(user, ['password']) : null)
       )
   }
+  @Get('userExist/:username')
+  userExist(@Param() params): Observable<IUser> {
+    return this.appService.fetchUserByUsername(params)
+      .pipe(
+        map((user: IUser) => user ? _.omit(user, ['password']) : null)
+      )
+  }
+
   isValidToken(token) {
     return this.appService.isTokenValid(token)
   }

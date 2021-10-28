@@ -20,4 +20,10 @@ export class ApiService {
         map((u: any) => u)
       )
   }
+  public checkIfUsernameExist(username: string): Observable<boolean> {
+    return this.http.get<IUser>(`/api/userExist/${username}`)
+      .pipe(
+        map(Boolean)
+      )
+  }
 }

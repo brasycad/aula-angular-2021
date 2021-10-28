@@ -14,6 +14,8 @@ import { UserComponent } from './components/user/user.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { StoreService } from './services/store.service';
 import { AuthInterceptor } from './services/unauthorized.response.interceptor';
+import { EquityPipe } from './services/equity.pipe';
+import { Watch } from './components/ui/watch/watch';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AuthInterceptor } from './services/unauthorized.response.interceptor';
     MainComponent,
     HomeComponent,
     UserComponent,
-    AnimalsComponent
+    AnimalsComponent,
+    EquityPipe,
+    Watch
   ],
   imports: [
     FormsModule, ReactiveFormsModule,

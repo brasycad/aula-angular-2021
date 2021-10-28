@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IUser } from '@aula/api-interfaces';
+import { CURRENCIES, IUser } from '@aula/api-interfaces';
 import { Observable, of, } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import * as _ from 'lodash'
@@ -41,42 +41,54 @@ export class AppService {
         username: 'Antonio',
         password: 'Antonio',
         name: 'Antonio Perez Gomez',
-        age: 32
+        age: 32,
+        currency: CURRENCIES.DOLLAR,
+        equity: 1234
       },
       {
         _id: '2',
         username: 'jose_el_valiente',
         password: 'Jose',
         name: 'Jose Valiente Gomez',
-        age: 23
+        age: 23,
+        currency: CURRENCIES.DOLLAR,
+        equity: 1234
       },
       {
         _id: '3',
         username: 'Arturo',
         password: 'Arturo',
         name: 'Arturo Perez Reverte',
-        age: 62
+        age: 62,
+        currency: CURRENCIES.EURO,
+        equity: 12834
       },
       {
         _id: '4',
         username: 'Diego',
         password: 'Diego',
         name: 'Diego Lujan Gomez',
-        age: 65
+        age: 65,
+        currency: CURRENCIES.EURO,
+        equity: 4234
       },
       {
         _id: '5',
         username: 'Miguel',
         password: 'Miguel',
         name: 'Miguel Angel Garcia',
-        age: 23
+        age: 23,
+        currency: CURRENCIES.DOLLAR,
+        equity: 234
       },
       {
         _id: '6',
         username: 'Javier',
         password: 'Javier',
         name: 'Javier Villar Alarcon',
-        age: 23
+        age: 23,
+        currency: CURRENCIES.EURO,
+        equity: 11234
       },
     ]
   }

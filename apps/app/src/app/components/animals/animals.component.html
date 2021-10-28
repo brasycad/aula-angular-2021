@@ -1,1 +1,13 @@
-<p>animals works!</p>
+<div class="component-wrapper" *ngIf="list$|async as list;else showWatch">
+    <br>
+    <!-- <a class='txt' (click)="toggle()">Toggle [{{show}}]</a> -->
+    <br>
+    <div class="list" [@inOutAnimation]>
+        <p *ngFor="let i of list">Row number -> {{i}}</p>
+    </div>
+</div>
+<ng-template #showWatch>
+    <aula-watch></aula-watch>
+</ng-template>
+
+<!-- <div *ngIf='source$|async'></div> -->

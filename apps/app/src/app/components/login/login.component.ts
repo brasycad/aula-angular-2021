@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, delay, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../services/api.service';
 import { StoreService } from '../../services/store.service';
 
@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   public dataForm: FormGroup | undefined;
   public send$: Observable<any> | undefined
   public loading = false
-
+  word$: Observable<boolean> | undefined;
+  info: string | undefined;
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.storeService.jwt ? this.goInside() : this.setupForm()
+
   }
   goInside() {
     this.router.navigate(['', 'user'])
@@ -39,6 +41,14 @@ export class LoginComponent implements OnInit {
       }]
     }
     this.dataForm = this.formBuilder.group(form)
+    this.word$ = this.dataForm.get('username')?.valueChanges
+      .pipe(
+        delay(500),
+        distinctUntilChanged(),
+        filter((word: string) => word.length > 4),
+        switchMap((word: string) => this.apiService.checkIfUsernameExist(word)),
+        tap((res: boolean) => this.info = res ? 'existe' : 'no existe')
+      )
   }
   send() {
     if ((this.dataForm as FormGroup).valid) {

@@ -1,0 +1,16 @@
+.component-wrapper {
+  .txt {
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .list {
+    display: grid;
+    grid-gap: 1em;
+    background: green;
+    padding: 2em;
+    p {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,184 @@
+.component-wrapper-1 {
+  width: 100px;
+  height: 100px;
+  transition: all 0.5s ease-in;
+
+  &.external-black {
+    .outter-circle {
+      background: var(--bg-strong);
+    }
+  }
+
+  &.inner-grey-850 {
+    .inner-circle {
+      background: var(--bg-strong-bearly);
+    }
+  }
+
+  .dot-big,
+  .dot-center,
+  .dot-small {
+    background: var(--brand-color);
+  }
+
+  .needdle-hour {
+    width: auto;
+    height: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 0.5s ease-in;
+    transform: translate(-50%, -50%) rotate(270deg) translateX(50%)
+      translateX(-3px);
+
+    .st0 {
+      fill: none;
+      stroke: var(--brand-color);
+      stroke-miterlimit: 10;
+    }
+
+    .st1 {
+      fill: var(--bg-strong-bearly);
+      stroke: var(--brand-color);
+      stroke-miterlimit: 10;
+    }
+  }
+
+  .needdle-minute {
+    width: auto;
+    height: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 0.5s ease-in;
+    transform: translate(-50%, -50%) rotate(270deg) translateX(50%)
+      translateX(-3px);
+
+    .st0 {
+      fill: none;
+      stroke: var(--brand-color);
+      stroke-miterlimit: 6;
+    }
+
+    .st1 {
+      fill: none;
+      stroke: var(--brand-color);
+      stroke-miterlimit: 6;
+    }
+  }
+
+  .needdle-seconds {
+    width: 49px;
+    height: 1px;
+    background: var(--red);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    //transition: all 0.5s ease-in;
+    border-radius: 1px;
+    transform: translate(-50%, -50%) rotate(270deg) translateX(50%);
+  }
+
+  .second-marks {
+    width: 3px;
+    height: 1px;
+    background: var(--bg-light);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.center {
+  position: relative;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+}
+
+.outter-circle {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.inner-circle {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.dot-big {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+}
+
+.dot-small {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+}
+
+.dot-0 {
+  transform: translate(-50%, -50%) rotate(0deg) translateX(45px);
+}
+
+.dot-1 {
+  transform: translate(-50%, -50%) rotate(300deg) translateX(45px);
+}
+
+.dot-2 {
+  transform: translate(-50%, -50%) rotate(330deg) translateX(45px);
+}
+
+.dot-3 {
+  transform: translate(-50%, -50%) rotate(90deg) translateX(45px);
+}
+
+.dot-4 {
+  transform: translate(-50%, -50%) rotate(30deg) translateX(45px);
+}
+
+.dot-5 {
+  transform: translate(-50%, -50%) rotate(60deg) translateX(45px);
+}
+
+.dot-6 {
+  transform: translate(-50%, -50%) rotate(180deg) translateX(45px);
+}
+
+.dot-7 {
+  transform: translate(-50%, -50%) rotate(120deg) translateX(45px);
+}
+
+.dot-8 {
+  transform: translate(-50%, -50%) rotate(150deg) translateX(45px);
+}
+
+.dot-9 {
+  transform: translate(-50%, -50%) rotate(270deg) translateX(45px);
+}
+
+.dot-10 {
+  transform: translate(-50%, -50%) rotate(210deg) translateX(45px);
+}
+
+.dot-11 {
+  transform: translate(-50%, -50%) rotate(240deg) translateX(45px);
+}
