@@ -1,0 +1,40 @@
+.component-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  background-image: url('/assets/sign.jpg');
+  background-color: blue;
+  background-size: cover;
+  .buttons {
+    padding: 1em 2em;
+    display: grid;
+    grid-gap: 2em;
+    justify-content: flex-start;
+
+    button {
+      width: 120px;
+      grid-row: 1;
+    }
+  }
+  .content {
+    display: grid;
+    place-content: center;
+    h1 {
+      color: white;
+      background: #0000007d;
+      padding: 1em 2em;
+      border-radius: 0.3em;
+    }
+  }
+  footer {
+    background-color: #3f51b5;
+    display: grid;
+    place-content: center;
+    padding: 1em;
+    p {
+      color: white;
+      margin: 0;
+    }
+  }
+}

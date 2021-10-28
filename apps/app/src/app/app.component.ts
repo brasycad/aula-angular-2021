@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@aula/api-interfaces';
+import { ApiService } from './services/api.service';
+import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { IUser } from '@aula/api-interfaces';
 
 @Component({
   selector: 'aula-root',
@@ -8,6 +10,15 @@ import { Message } from '@aula/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  user$: any
+  constructor(
+    private api: ApiService
+  ) { }
+  ngOnInit() {
+
+    this.user$ = this.api.fetchUserByUsername('Miguel')
+      .pipe(
+        tap(console.log),
+      )
+  }
 }

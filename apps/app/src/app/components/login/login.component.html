@@ -1,0 +1,31 @@
+<div class="component-wrapper">
+    <header>
+        <button mat-raised-button color="primary" routerLink="/home">Home</button>
+        <h3 class='title'>Entrar en la aplicación</h3>
+    </header>
+    <div class='content'>
+        <form class="form" [formGroup]="dataForm" *ngIf='dataForm'>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName='username'>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName='password'>
+            </mat-form-field>
+            <button *ngIf="!loading else Loading" type='submit' mat-raised-button color="primary" (click)='send()'
+                [disabled]="!dataForm.valid">Enviar</button>
+
+
+            <ng-template #Loading>
+                <div class="loader">
+                    <img src="/assets/ball-triangle.svg" alt="">
+                </div>
+            </ng-template>
+            <div *ngIf="send$|async as info" class='info'>
+                <p *ngIf='info.token'>Token: {{info.token}}</p>
+                <p *ngIf='info.error' class='error'>Combinación de username/password incorrecta!</p>
+            </div>
+        </form>
+    </div>
+</div>
